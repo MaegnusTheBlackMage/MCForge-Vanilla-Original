@@ -2046,6 +2046,7 @@ return;
             catch (Exception e) { Server.ErrorLog(e); Player.GlobalMessage("An error occurred: " + e.Message); }
         }
         public void HandleCommand(string cmd, string message) {
+            message = Regex.Replace(message, @"[^\d\w\-.@ ]", "");
             try {
                 if (Server.verifyadmins) {
                     if (cmd.ToLower() == "setpass") {
